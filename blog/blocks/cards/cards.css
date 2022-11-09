@@ -95,6 +95,15 @@
     margin: 0;
 }
 
+.cards > .card > h5 {
+    font-family: var(--body-font-family);
+    font-size: 12px;
+    font-style: normal;
+    line-height: 15px;
+    margin: 0;
+    text-transform: uppercase;
+}
+
 .resources-guides .cards > .card > .title {
     text-transform: unset;
 }
@@ -276,6 +285,18 @@ div.has-text-only h4 {
     margin-top: .625rem;
 }
 
+.cards > .card.has-image > .caption {
+    color: var(--theme-shade5);
+    font-size: 12px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.cards > .card.has-image > .caption + .title {
+    margin-top: 0;
+}
+
 .cards > .card.has-image > .image {
     border-radius: 1rem;
     box-shadow: var(--theme-shadow2-shade5);
@@ -452,4 +473,28 @@ div.has-text-only h4 {
     .cards.hex-background-dual-tone > .card .icon-container {
         margin: 0;
     }
+}
+
+/* Primary Theme */
+
+.cards.primary .card .icon {
+    color: var(--theme-base);
+}
+
+.cards.primary .card h4 {
+    color: var(--theme-shade5);
+}
+
+.cards.primary .card h5 {
+    color: var(--theme-shade10);
+}
+
+.cards.primary .card a:any-link {
+    color: var(--theme-base);
+}
+
+/* Heading Gray */
+
+.cards.heading-gray .card h5 {
+    color: var(--color-gray-12);
 }

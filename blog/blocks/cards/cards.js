@@ -79,6 +79,18 @@ export default function decorate(block) {
       card.classList.add('has-image');
       if (topImageFull) card.classList.add('full');
       image.classList.add('image');
+
+      // Extra handling if the image has a caption
+      const imageParent = image.parentElement;
+
+      if (imageParent.tagName === 'P') {
+        const caption = imageParent.nextElementSibling;
+        caption?.classList.add('caption');
+
+        card.insertBefore(image, imageParent);
+        card.insertBefore(caption, imageParent);
+        imageParent.remove();
+      }
     }
 
     // add title class
