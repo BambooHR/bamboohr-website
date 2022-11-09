@@ -1,0 +1,7 @@
+.hr-experience-nomination h1 {
+    font-family: var(--heading-font-family);
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    color: var(--color-gray-8);
+}

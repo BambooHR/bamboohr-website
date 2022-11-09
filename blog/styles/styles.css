@@ -18,6 +18,7 @@
 @import 'templates/payroll-roi.css';
 @import 'templates/performance-reviews.css';
 @import 'templates/pricing-quote.css';
+@import 'templates/hr-experience-maker-awards.css';
 @import 'templates/hr-software.css';
 @import 'templates/hr-unplugged.css';
 @import 'templates/live-demo-webinars.css';
@@ -506,6 +507,18 @@ table td {
     font-size: 54px;
     line-height: 60px;
   }
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
 }
 
 @media (min-width: 900px) {
@@ -1329,6 +1342,10 @@ main .section.gradient-section-4 > div:last-of-type {
 
 .gradient-section-4 {
   position: relative;
+}
+
+.bg-gray-2 {
+  background-color: var(--color-gray-2);
 }
 
 .bg-hex-1 img {
