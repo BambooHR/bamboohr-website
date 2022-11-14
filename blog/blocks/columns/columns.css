@@ -21,6 +21,25 @@
   background-image: linear-gradient(rgb(0 0 0 / 0%) 50%, var(--secondary-theme-tint10) 0);
 }
 
+.columns .column-small-icons-container.column-multi-element a {
+  color: var(--theme-shade5);
+  background-image: unset;
+}
+
+.columns .column-small-icons-container.column-multi-element a:not(.column-svg-link):after {
+  background-color: currentcolor;
+  content: '';
+  display: inline-block;
+  height: .8125rem;
+  margin-left: .5rem;
+  mask-image: url('../../styles/caret-right.svg');
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-mask-image: url('../../styles/caret-right.svg');
+  vertical-align: middle;/* TODO: replace with flex on button? */
+  width: .5rem;
+  position: unset;
+}
+
 .columns a.button:not(.link):any-link {
   color: var(--theme-tint5);
   background-color: var(--theme-shade15);
@@ -144,7 +163,8 @@
 .columns-4-cols img,
 .listing-highlights img,
 .columns.small-icons img,
-.home-more .columns img {
+.home-more .columns img,
+.columns .columns-title-span img {
   width: auto;
 }
 
@@ -415,6 +435,40 @@ div .column-small-icons-container {
   align-items: flex-start;
   justify-content: center;
   margin: 0 -20px;
+}
+
+div .column-small-icons-container.column-multi-element {
+  justify-content: unset;
+  align-items: center;
+  margin: 0;
+  gap: 1rem;
+}
+
+.columns .column-small-icons-container.column-multi-element p.button-container {
+  max-width: 145px;
+}
+
+.columns .columns-title-span {
+  width: 100%;
+}
+
+.columns .icon {
+  color: var(--theme-base);
+}
+
+.columns .icon .shade {
+  color: var(--theme-shade5);
+}
+
+.columns .icon .tint {
+  color: var(--theme-tint15);
+}
+
+.columns .icon.icon-calendar-invite svg,
+.columns .icon.icon-payroll svg,
+.columns .icon.icon-search-profile svg {
+  width: 6rem;
+  height: auto;
 }
 
 .column1 {
