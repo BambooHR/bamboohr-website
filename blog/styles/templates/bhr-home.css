@@ -27,6 +27,17 @@
     margin-top: 0;
     color: var(--color-gray-10);
     font-style: normal;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.bhr-home .columns .icon svg {
+    width: 5rem;
+    height: auto;
+}
+
+.bhr-home .columns .column-small-icons-container.column-multi-element p.button-container.btn-ats {
+    max-width: 165px;
 }
 
 .bhr-home .columns a.button:not(.link):any-link {
@@ -52,6 +63,14 @@
     font-size: 21px;
     line-height: 30px;
     color: var(--color-white);
+}
+
+.bhr-home main .quote.full {
+    color: var(--theme-shade10);
+}
+
+.bhr-home main .quote.full .byline {
+    color: var(--color-gray-11);
 }
 
 .bhr-home .bg-top-cap-3.has-bg > span.bg-top-cap-3 {

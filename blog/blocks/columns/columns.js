@@ -1,13 +1,19 @@
 import { hasClassStartsWith, getValuesFromClassName, loadCSS } from '../../scripts/scripts.js';
 import decorateWistia from '../wistia/wistia.js';
 
+function addIconBtnClass(buttonContainer, icon) {
+  const iconClass = [...icon.classList].find(c => c.startsWith('icon-'));
+  const iconName = iconClass.substring(5);
+  buttonContainer.classList.add(`btn-${iconName}`);
+}
+
 function addLinkToIconSVG(icon, link) {
   // Clone the link: 
   if (link?.tagName === 'A') {
     const imageLink = link.cloneNode(true);
     imageLink.innerText = '';
     imageLink.classList.add('column-svg-link');
-    imageLink.append(icon.firstElementChild);
+    if (icon.firstElementChild) imageLink.append(icon.firstElementChild);
     icon.append(imageLink);
   } 
 }
@@ -28,11 +34,13 @@ function addIconContainer(col) {
           icon.parentElement.append(buttonContainer);
 
           addLinkToIconSVG(icon, link);
+          addIconBtnClass(buttonContainer, icon);
         } else if (icon.parentElement.nextElementSibling?.tagName === 'P'
             && icon.parentElement.nextElementSibling.classList.contains('button-container')) {
           link = icon.parentElement.nextElementSibling.firstElementChild;
           if (link?.tagName === 'A') link.classList.remove('button', 'accent', 'small');
           addLinkToIconSVG(icon, link);
+          addIconBtnClass(icon.parentElement.nextElementSibling, icon);
           icon.parentElement.append(icon.parentElement.nextElementSibling);
         }
 
@@ -144,7 +152,7 @@ function setupColumns(cols, splitVals, block, needToLoadWistiaCSS) {
     addIconContainer(col);
   });
 
-  colsToRemove.forEach((col) => col.remove() );
+  colsToRemove.forEach((col) => col.remove());
 
   if (hasWistia || !hasImage) colParent.classList.add('columns-align-start');
 

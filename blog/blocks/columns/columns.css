@@ -449,8 +449,14 @@ div .column-small-icons-container.column-multi-element {
   gap: 1rem;
 }
 
+.columns .column-small-icons-container.column-multi-element p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
 .columns .column-small-icons-container.column-multi-element p.button-container {
   max-width: 145px;
+  text-align: center;
 }
 
 .columns .columns-title-span {
@@ -470,7 +476,7 @@ div .column-small-icons-container.column-multi-element {
 }
 
 .columns .icon .shade {
-  color: var(--theme-shade5);
+  color: var(--theme-base);
 }
 
 .columns .icon .tint {
@@ -478,7 +484,9 @@ div .column-small-icons-container.column-multi-element {
 }
 
 .columns .icon.icon-calendar-invite svg,
-.columns .icon.icon-payroll svg,
+.columns .icon.icon-culture svg,
+.columns .icon.icon-hr-database svg,
+.columns .icon.icon-hr-resources svg,
 .columns .icon.icon-search-profile svg {
   width: 6rem;
   height: auto;

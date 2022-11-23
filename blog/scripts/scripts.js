@@ -247,7 +247,8 @@ export function decorateIcons(element) {
     fetch(`${fetchBase}${window.hlx.codeBasePath}/icons/${iconName}.svg`).then((resp) => {
       if (resp.status === 200)
         resp.text().then((svg) => {
-          span.innerHTML = svg;
+          const parent = span.firstElementChild?.tagName === 'A' ? span.firstElementChild : span;
+          parent.innerHTML = svg;
         });
     });
   });
