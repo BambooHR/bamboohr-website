@@ -12,18 +12,82 @@ const mediaQueryDesktop = window.matchMedia('(min-width: 1200px)');
  * collapses all open nav sections
  * @param {Element} sections The container element
  */
-
 function collapseAll(elems) {
   elems.forEach((section) => {
     section.setAttribute('aria-expanded', 'false');
   });
 }
 
+function hideSearchInput(navSearchBtn, phoneNumElem) {
+  navSearchBtn.classList.remove('hide-btn');
+  navSearchBtn.nextElementSibling.classList.remove('show-input');
+  navSearchBtn.parentElement.classList.remove('search-open');
+  navSearchBtn.parentElement.parentElement.parentElement.classList.remove('search-open');
+  if (phoneNumElem) phoneNumElem.style.display = '';
+}
+
+function addSearch(buttonsContainer) {
+  const search = buttonsContainer.querySelector('p:not(:has(*))');
+  if (search?.textContent?.toLowerCase() === '[search]') {
+    buttonsContainer.parentElement.classList.add('has-search');
+    // Build search.
+    const div = document.createElement('div');
+    div.className = 'nav-search-wrapper';
+    buttonsContainer.insertBefore(div, search);
+    div.innerHTML = `
+    <div class="nav-search-btn">
+      <img src="${window.hlx.codeBasePath}/icons/search.svg" alt="search" class="icon icon-search"></img>
+    </div>
+    <div class="nav-search-text-area">
+      <div class="nav-search-input-wrapper">
+        <input type="search" class="nav-search-input" placeholder="What can we help you find?" aria-label="Enter your search terms here"/>
+      </div>
+      <button type="button" class="nav-search-input-btn" aria-label="Click here to search">
+        <img class="icon icon-search" src="${window.hlx.codeBasePath}/icons/search.svg" alt="Search">
+      </button>
+    </div>`;
+
+    search.remove();
+
+    // Setup listeners
+    const navSearchBtn = div.querySelector('.nav-search-btn');
+    const navSearchInput = div.querySelector('.nav-search-input');
+    const navSearchInputBtn = div.querySelector('.nav-search-input-btn');
+    const phoneNumElem = buttonsContainer.querySelector('.phone-number');
+
+    navSearchBtn.addEventListener('click', () => {
+      // Show search input
+      navSearchBtn.parentElement.classList.add('search-open');
+      navSearchBtn.parentElement.parentElement.parentElement.classList.add('search-open');
+      navSearchBtn.classList.add('hide-btn');
+      if (phoneNumElem) phoneNumElem.style.display = 'none';
+      navSearchBtn.nextElementSibling.classList.add('show-input');
+      navSearchInput.focus();
+    });
+
+    navSearchInput.addEventListener('keyup', (evt) => {
+      // Invoke search on 'enter' key
+      if (evt.keyCode === 13) navSearchInputBtn.click();
+    });
+
+    navSearchInput.addEventListener('blur', (evt) => {
+      if (evt.relatedTarget?.classList.contains('nav-search-input-btn')) navSearchInputBtn.click();
+      else hideSearchInput(navSearchBtn, phoneNumElem);
+    });
+
+    navSearchInputBtn.addEventListener('click', () => {
+      const searchText = navSearchInput.value.toLowerCase();
+      const encoded = encodeURIComponent(searchText);
+      if (encoded) window.location.href = `https://www.bamboohr.com/search/?q=${encoded}`;
+      else hideSearchInput(navSearchBtn, phoneNumElem);
+    });
+  }
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
-
 export default async function decorate(block) {
   block.textContent = '';
 
@@ -49,7 +113,6 @@ export default async function decorate(block) {
   navSections.classList.add('nav-sections');
   navSections.setAttribute('am-region', 'Main Nav');
   nav.innerHTML = html;
-  decorateIcons(nav);
   nav.querySelectorAll(':scope > div').forEach((navSection, i) => {
     if (!i) {
       // first section is the brand section
@@ -109,6 +172,8 @@ export default async function decorate(block) {
             a.classList.add('light');
           }
         });
+
+        addSearch(buttonsContainer);
       }
     }
   });
@@ -168,4 +233,5 @@ export default async function decorate(block) {
   else if (template === 'pricing-quote') collection = 'pricing-quote';
 
   if (collection === 'blog') block.append(createSearch());
+  decorateIcons(block);
 }

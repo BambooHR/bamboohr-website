@@ -1,11 +1,21 @@
 /* search */
 
-.header-search img {
+.header-search img, 
+.header-search .icon svg {
   width: 36px;
   height: 36px;
   object-fit: contain;
   display: inline-block;
   padding: 9px;
+  color: #9CA393;
+}
+
+.nav-search-btn .icon-search svg {
+  color: var(--color-1);
+}
+
+.nav-search-input-btn .icon-search svg {
+  color: var(--color-white);
 }
 
 .header-search {
@@ -329,6 +339,63 @@ header .nav[aria-expanded="true"] .nav-buttons {
   align-self: flex-start;
 }
 
+header .nav-buttons .nav-search-wrapper {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+header .nav-buttons .nav-search-wrapper.search-open {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+header .nav-buttons .nav-search-btn {
+  display: none;
+  cursor: pointer;
+}
+
+header .nav-buttons .nav-search-btn.hide-btn {
+  display: none;
+}
+
+header .nav-buttons .nav-search-text-area {
+  display: flex;
+  width: 100%;
+  margin: 0 5px;
+}
+
+header .nav-buttons .nav-search-text-area.show-input {
+  display: flex;
+}
+
+.nav-search-input-wrapper {
+  width: 100%;
+}
+
+.nav-search-input {
+  width: 100%;
+  border-radius: 25px 0 0 25px;
+  padding: 10px 15px;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  color: var(--color-gray-12);
+  line-height: 18px;
+  background-color: var(--color-gray-1);
+  transition: all .3s ease-in-out;
+  border: 2px solid var(--color-gray-1);
+  margin: 0;
+}
+
+.nav-search-input-btn {
+  line-height: 0;
+  border-radius: 0 25px 25px 0;
+  border: 2px solid transparent;
+  max-width: 50px;
+  width: 100%;
+  background-color: var(--color-1);
+  cursor: pointer;
+}
+
 header .nav-buttons .button {
   padding: 5px 20px;
   min-width: 60px;
@@ -394,6 +461,43 @@ header .nav-section.nav-section-subscribe form {
 
   header .nav.extra-buttons {
     grid-template-columns: 300px 1fr 425px;
+  }
+
+  header .nav.extra-buttons.has-search {
+    grid-template-columns: 300px 1fr 440px;
+  }
+
+  header .nav.extra-buttons.search-open {
+    grid-template-columns: 300px 1fr 541px;
+  }
+
+  header .nav-buttons .nav-search-wrapper {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
+  }
+
+  header .nav-buttons .nav-search-btn {
+    display: unset;
+  }
+
+  header .nav-buttons .nav-search-text-area {
+    display: none;
+    width: 300px;
+    margin: 0;
+  }
+
+  .nav-search-input-wrapper {
+    max-width: 250px;
+  }
+
+  .nav-search-input,
+  .nav-search-input-btn {
+    height: 35px;
+  }
+
+  .nav-search-input {
+    padding: 0 15px;
   }
 
   header .nav-brand p img {
