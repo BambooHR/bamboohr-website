@@ -79,8 +79,7 @@ main .multi-hero-container {
   top: 311px;
   left: 0;
   right: 0;
-  background-color: var(--theme-shade5);
-  z-index: -1;
+  z-index: 0;
 }
 
 .multi-hero-carousel > div:nth-child(n + 2) {
@@ -166,7 +165,7 @@ main .multi-hero .carousel-controls {
   }
 
   .multi-hero.carousel {
-    margin-top: 70px;
+    margin-top: 90px;
   }
 }
 
@@ -176,7 +175,7 @@ main .multi-hero .carousel-controls {
   }
 
   .multi-hero.carousel {
-    margin-top: 60px;
+    margin-top: 70px;
   }
 }
 

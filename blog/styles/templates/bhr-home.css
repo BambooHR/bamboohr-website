@@ -132,6 +132,11 @@
     margin-bottom: 50px;
 }
 
+.bhr-home .block.wistia picture {
+    --radius: 1rem;
+    box-shadow: var(--box-shadow-3);
+}
+
 .bhr-home .section-2 {
     margin-top: -1450px;
 }
@@ -230,6 +235,12 @@
     
     .bhr-home .section-2 {
         margin-top: -1375px;
+    }
+}
+
+@media (max-width: 599px) {
+    .bhr-home main .section > div.multi-hero-wrapper {
+        background-color: var(--theme-shade5);
     }
 }
 
