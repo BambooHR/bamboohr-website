@@ -1,8 +1,8 @@
-@import "../../blog/styles/styles.css";
+@import "../../styles/styles.css";
 
 /*
 * This should only contain styles for style guide pages
-* global styles needs to live in /blog/styles/styles.css
+* global styles needs to live in /styles/styles.css
 */
 
 .test {

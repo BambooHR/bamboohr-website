@@ -12,7 +12,7 @@ document.head.innerHTML = await readFile({ path: './head.html' });
 
 describe('Core Helix features', () => {
   before(async () => {
-    const mod = await import('../../blog/scripts/scripts.js');
+    const mod = await import('../../scripts/scripts.js');
     Object
       .keys(mod)
       .forEach((func) => {
