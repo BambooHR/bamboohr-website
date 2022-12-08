@@ -28,22 +28,27 @@ const createCalloutBlock = (main, document) => {
     const sub = callout.querySelector('.HrGlossaryTerm__contentCtaSubheading');
     if (sub) {
       const p = document.createElement('p');
-      p.innerHTML = sub.innerHTML;
+      p.innerHTML = sub.innerHTML.replace(/[\r\n\t]/gm, '');
       container.append(p);
     }
 
     cells.push([container]);
 
-    let cta = callout.querySelector('.HrGlossaryTerm__contentCtaBtn');
-    // const href = cta.getAttribute('href');
-    // const goodUrl = 'https://www.bamboohr.com' + href;
-    // cta.href = goodUrl;
+    const cta = callout.querySelector('.HrGlossaryTerm__contentCtaBtn');
     if (cta) {
       cells.push([cta]);
-      // cells.push([newBtn]);
     }
     const table = WebImporter.DOMUtils.createTable(cells, document);
     callout.replaceWith(table);
+  });
+};
+
+const fixGeneralContent = (main) => {
+  const termContent = main.querySelector('.HrGlossaryTerm');
+  termContent.innerHTML = termContent.innerHTML.replaceAll(' href="/', ' href="https://www.bamboohr.com/');
+
+  main.querySelectorAll('.typ-title2.term-content-heading4').forEach(heading => {
+    heading.outerHTML = `<h4>${ heading.innerHTML }</h4>`;
   });
 };
 
@@ -51,7 +56,6 @@ const createReferenceBlock = (main, document) => {
   main.querySelectorAll('.HrGlossaryAlsoLike__container').forEach((container) => {
 
     const cells = [['Cards (image top, 3 columns)']];
-    // const container = document.createElement('div');
 
     container.querySelectorAll('.HrGlossaryAlsoLike__wrapper').forEach((reference) => {
       const wrapper = document.createElement('div');
@@ -109,7 +113,6 @@ const createMetadata = (main, document) => {
   }
 
   meta.Template = 'HR Glossary';
-  
   meta.Theme = 'green';
 
   meta.Category = '';
@@ -145,8 +148,6 @@ export default {
       '.NavbarMobile',
       '.HrGlossaryBanner',
       '.HrGlossaryCalc',
-      // '.HrGlossaryAlsoLike',
-      // '.HrGlossaryTerm__contentCtaWrap',
       '.acc-out-of-view',
       '.Footer',
     ]);
@@ -154,6 +155,7 @@ export default {
     createCalloutBlock(main, document);
     createReferenceBlock(main, document);
     createMetadata(main, document);
+    fixGeneralContent(main);
 
     return main;
   },

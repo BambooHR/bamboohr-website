@@ -418,6 +418,7 @@ main .title.title1 :is(h1, h2, h3, h4, h5, h6, div) {
 
 .typ-title2,
 .home-more .columns p strong,
+.hr-glossary main h4,
 main .title.title2 :is(h1, h2, h3, h4, h5, h6, div) {
   font-family: var(--heading-font-family);
   font-size: 20px;
