@@ -56,6 +56,7 @@
   border-bottom: none;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .multi-cta-cards > div > div > h4 + .button-container .button {
@@ -130,6 +131,7 @@
 .multi-cta-cards > div > div > ul + .button-container {
   margin: 0 0 21px;
   padding: 0;
+  text-align: center;
 }
 
 .multi-cta-tooltip-container a:any-link {

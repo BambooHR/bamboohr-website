@@ -355,6 +355,19 @@ main .multi-element p {
     }
 }
 
+.multi-element.hero > .content h3 {
+    margin-bottom: -20px;
+}
+
+.multi-element.hero.title1-heading > .content h3 {
+    font-size: 26px;
+    line-height: 30px;
+}
+
+.multi-element.hero.gray-heading > .content h3 {
+    color: var(--color-gray-12);
+}
+
 .multi-element.hero h1 {
     font-size: 2.5rem;
     font-weight: 900;

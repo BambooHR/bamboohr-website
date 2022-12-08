@@ -119,8 +119,8 @@ indices:
 
   hr-glossary:
     include:
-      - '/hr-glossary/**'
-    target: /hr-glossary/query-index
+      - '/resources/hr-glossary/**'
+    target: /resources/hr-glossary/query-index
     properties:
       title:
         select: head > meta[property="og:title"]

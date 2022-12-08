@@ -1,5 +1,30 @@
 import { hasClassStartsWith, getValuesFromClassName, loadCSS } from '../../scripts/scripts.js';
 import decorateWistia from '../wistia/wistia.js';
+import { buildPicture } from '../multi-hero/multi-hero.js';
+
+function addBreakpointImages(col, block) {
+  if (block.classList.contains('has-breakpoint-images')) {
+    const images = {};
+    const imgSizes = ['tablet', 'laptop', 'desktop'];
+    let imgsFoundCnt = 0;
+    col.querySelectorAll('picture').forEach(pic => {
+      const imagePathFull = pic.firstElementChild.srcset;
+      const imagePath = imagePathFull.substr(0, imagePathFull.indexOf('?'));
+
+      images[imgSizes[imgsFoundCnt]] = imagePath;
+      imgsFoundCnt++;
+
+      if (pic.parentElement.tagName === 'P') pic.parentElement.remove();
+      else pic.remove();
+    });
+
+    if (imgsFoundCnt > 0) {
+      const imgBreakpoints = {'tablet': '0', 'laptop': '600px', 'desktop': '900px' };
+      const backgroundPictureElem = buildPicture(images, imgBreakpoints);
+      col.append(backgroundPictureElem);
+    }
+  }
+}
 
 function addIconBtnClass(buttonContainer, icon) {
   const iconClass = [...icon.classList].find(c => c.startsWith('icon-'));
@@ -130,6 +155,7 @@ function setupColumns(cols, splitVals, block, needToLoadWistiaCSS) {
     } else if (col.querySelector('img')) {
       col.classList.add('img-col');
       hasImage = true;
+      addBreakpointImages(col, block);
     } else col.classList.add('non-img-col');
     const noLeftButtons = block.classList.contains('no-left-buttons');
     

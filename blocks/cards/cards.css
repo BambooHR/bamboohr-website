@@ -290,6 +290,7 @@ div.has-text-only h4 {
     box-shadow: var(--theme-shadow2-shade5);
     display: flex;
     overflow: hidden;
+    width: 100%;
 }
 
 .cards.no-box-shadow > .card.has-image img {

@@ -58,8 +58,8 @@ body.appear {
 main {
   overflow: hidden;
 }
-/* buttons */
 
+/* buttons */
 a.button:any-link {
   text-decoration: none;
   border-radius: 100px;
@@ -290,10 +290,18 @@ main h6 {
   color: var(--heading-color);
   font-weight: var(--heading-font-weight);
   font-family: var(--heading-font-family);
-  font-style: italic;
   margin-top: 48px;
   margin-bottom: 16px;
   scroll-margin: 80px;
+}
+
+.blog-post main h1,
+.blog-post main h2,
+.blog-post main h3,
+.blog-post main h4,
+.blog-post main h5,
+.blog-post main h6 {
+  font-style: italic;
 }
 
 main h1 {
@@ -368,11 +376,14 @@ main .title.hero-subhead :is(h1, h2, h3, h4, h5, h6, div) {
   line-height: 26px;
   margin: 20px 0 0;
 }
-
+.typ-subhead1 :is(h1, h2, h3, h4, h5, h6, div) {
+  font-weight: 500;
+}
 .typ-section-subhead,
 main .title.section-subhead :is(h1, h2, h3, h4, h5, h6, div) {
   font-family: var(--body-font-family);
   font-size: 21px;
+  font-weight: 400;
   line-height: 30px;
   margin: 20px 0 0;
 }
@@ -432,7 +443,7 @@ main .title.stats-subhead :is(h1, h2, h3, h4, h5, h6, div) {
 }
 
 .typ-quote,
-main .title.quote :is(h1, h2, h3, h4, h5, h6, div),
+main .title.typ-quote :is(h1, h2, h3, h4, h5, h6, div),
 .resources-guides main h5 {
   font-family: var(--body-font-family);
   font-size: 20px;
@@ -820,9 +831,12 @@ main .section.max-width-small > div {
 }
 
 main .section p.button-container {
-  text-align: center;
   margin-top: 16px;
   margin-bottom: 0;
+}
+
+main .section .default-content-wrapper .button-container {
+  text-align: center;
 }
 
 .integrations .home-featured-cat p.button-container {

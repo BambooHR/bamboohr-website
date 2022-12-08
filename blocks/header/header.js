@@ -7,6 +7,8 @@ import {
 } from '../../scripts/scripts.js';
 
 const mediaQueryDesktop = window.matchMedia('(min-width: 1200px)');
+const mediaQuerySearchOpen = window.matchMedia('(max-width: 1329px)');
+let submenuActionTimer = null;
 
 /**
  * collapses all open nav sections
@@ -18,12 +20,13 @@ function collapseAll(elems) {
   });
 }
 
-function hideSearchInput(navSearchBtn, phoneNumElem) {
+function hideSearchInput(navSearchBtn, phoneNumElem, navButtons) {
   navSearchBtn.classList.remove('hide-btn');
   navSearchBtn.nextElementSibling.classList.remove('show-input');
   navSearchBtn.parentElement.classList.remove('search-open');
   navSearchBtn.parentElement.parentElement.parentElement.classList.remove('search-open');
-  if (phoneNumElem) phoneNumElem.style.display = '';
+  if (mediaQuerySearchOpen.matches) navButtons?.forEach(b => b.style.display = '');
+  else if (mediaQueryDesktop.matches && phoneNumElem) phoneNumElem.style.display = '';
 }
 
 function addSearch(buttonsContainer) {
@@ -54,13 +57,15 @@ function addSearch(buttonsContainer) {
     const navSearchInput = div.querySelector('.nav-search-input');
     const navSearchInputBtn = div.querySelector('.nav-search-input-btn');
     const phoneNumElem = buttonsContainer.querySelector('.phone-number');
+    const navButtons = buttonsContainer.querySelectorAll('.nav-buttons .button.small');
 
     navSearchBtn.addEventListener('click', () => {
       // Show search input
       navSearchBtn.parentElement.classList.add('search-open');
       navSearchBtn.parentElement.parentElement.parentElement.classList.add('search-open');
       navSearchBtn.classList.add('hide-btn');
-      if (phoneNumElem) phoneNumElem.style.display = 'none';
+      if (mediaQuerySearchOpen.matches) navButtons?.forEach(b => b.style.display = 'none');
+      else if (mediaQueryDesktop.matches && phoneNumElem) phoneNumElem.style.display = 'none';
       navSearchBtn.nextElementSibling.classList.add('show-input');
       navSearchInput.focus();
     });
@@ -72,17 +77,36 @@ function addSearch(buttonsContainer) {
 
     navSearchInput.addEventListener('blur', (evt) => {
       if (evt.relatedTarget?.classList.contains('nav-search-input-btn')) navSearchInputBtn.click();
-      else hideSearchInput(navSearchBtn, phoneNumElem);
+      else hideSearchInput(navSearchBtn, phoneNumElem, navButtons);
     });
 
     navSearchInputBtn.addEventListener('click', () => {
       const searchText = navSearchInput.value.toLowerCase();
       const encoded = encodeURIComponent(searchText);
       if (encoded) window.location.href = `https://www.bamboohr.com/search/?q=${encoded}`;
-      else hideSearchInput(navSearchBtn, phoneNumElem);
+      else hideSearchInput(navSearchBtn, phoneNumElem, navButtons);
     });
   }
 }
+
+/**
+ * Hides all visible submenus, shows the submenu for the given li
+ * @param Element nav Main nav div element
+ * @param Element li Optional element used to show it's submenu
+ * @param Boolean delayed if true actions are delayed, if false actions are immediate.
+ */
+const submenuAction = (nav, li, delayed = true) => {
+  if (submenuActionTimer) window.clearTimeout(submenuActionTimer);
+
+  if (delayed) {
+    submenuActionTimer = window.setTimeout(() => {
+      [...nav.querySelectorAll('li.show-sub-menu')].forEach(e => e.classList.remove('show-sub-menu'));
+      li?.classList.add('show-sub-menu');
+    }, 300);
+  } else {
+    [...nav.querySelectorAll('li.show-sub-menu')].forEach(e => e.classList.remove('show-sub-menu'));
+  }
+};
 
 /**
  * decorates the header, mainly the nav
@@ -156,6 +180,21 @@ export default async function decorate(block) {
                   collapseAll([...nav.querySelectorAll('li[aria-expanded="true"]')]);
                   li.setAttribute('aria-expanded', expanded ? 'false' : 'true');
                 }
+              });
+
+              li.addEventListener('mouseenter', () => {
+                submenuAction(nav, li);
+              });
+
+              if (!li.parentElement.getAttribute('data-listener')) {
+                li.parentElement.addEventListener('mouseleave', (evt) => {
+                  submenuAction(nav, null, false);
+                });
+                li.parentElement.setAttribute('data-listener', true);
+              }
+            } else {
+              li.addEventListener('mouseenter', () => {
+                submenuAction(nav);
               });
             }
           });

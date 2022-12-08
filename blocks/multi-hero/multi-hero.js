@@ -16,7 +16,7 @@ const IMAGE_WIDTHS = {
 const IMAGE_OPTIMIZATION = 'medium';
 
 // TODO: would probably be best to make this a global utility
-export function buildPicture(images) {
+export function buildPicture(images, minBreakpoints = MIN_BREAKPOINTS) {
   const pictureElem = document.createElement('picture');
 
   Object.keys(images).forEach((key) => {
@@ -36,8 +36,8 @@ export function buildPicture(images) {
     } else {
       const sourcePngElem = createElem('source');
 
-      sourceWebpElem.setAttribute('media', `(min-width: ${MIN_BREAKPOINTS[key]})`);
-      sourcePngElem.setAttribute('media', `(min-width: ${MIN_BREAKPOINTS[key]})`);
+      sourceWebpElem.setAttribute('media', `(min-width: ${minBreakpoints[key]})`);
+      sourcePngElem.setAttribute('media', `(min-width: ${minBreakpoints[key]})`);
 
       sourcePngElem.setAttribute('type', 'image/png');
       sourcePngElem.setAttribute('srcset', `${srcsetPath}&format=png`);

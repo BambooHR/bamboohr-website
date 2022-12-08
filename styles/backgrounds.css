@@ -149,7 +149,8 @@
 }
 
 /* multi 4 */
-.has-bg > span.bg-top-multi-4 {
+.has-bg > span.bg-top-multi-4,
+.has-bg > span.bg-top-multi-4-light {
   background-image: linear-gradient(180deg, var(--theme-tint15) 0%, transparent 100%);
   min-height: 50rem;
 }

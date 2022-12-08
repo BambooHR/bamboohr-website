@@ -13,5 +13,5 @@ sitemaps:
 
   hrGlossary:
       origin: https://www.bamboohr.com
-      source: /hr-glossary/query-index.json
-      destination: /hr-glossary/sitemap.xml
+      source: /resources/hr-glossary/query-index.json
+      destination: /resources/hr-glossary/sitemap.xml

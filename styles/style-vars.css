@@ -61,7 +61,7 @@
   --color-gray-4: #d5d4d2;
   --color-gray-5: #c8c8c6;
   --color-gray-6: #babab9;
-  --color-gray-7: #babab9;
+  --color-gray-7: #969797;
   --color-gray-8: #87888b;
   --color-gray-9: #74767a;
   --color-gray-10: #626467;
@@ -897,30 +897,44 @@ div.secondary-teal {
   color: var(--color-white);
 }
 
-.theme {
+.theme,
+.color-base,
+.color-base :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-base);
 }
 
-.theme-tint-5 {
+.theme-tint-5,
+.color-tint-5,
+.color-tint-5 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-tint5);
 }
 
-.theme-tint-15 {
-  color: var(--theme-tint15);
-}
-
-.theme-tint-10 {
+.theme-tint-10,
+.color-tint-10,
+.color-tint-10 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-tint10);
 }
 
-.theme-shade-5 {
+.theme-tint-15,
+.color-tint-15,
+.color-tint-15 :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--theme-tint15);
+}
+
+.theme-shade-5,
+.color-shade-5,
+.color-shade-5 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-shade5);
 }
 
-.theme-shade-10 {
+.theme-shade-10,
+.color-shade-10,
+.color-shade-10 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-shade10);
 }
 
-.theme-shade-15 {
+.theme-shade-15,
+.color-shade-15,
+.color-shade-15 :is(h1, h2, h3, h4, h5, h6) {
   color: var(--theme-shade15);
 }

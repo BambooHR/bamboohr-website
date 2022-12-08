@@ -339,6 +339,10 @@ header .nav[aria-expanded="true"] .nav-buttons {
   align-self: flex-start;
 }
 
+header .nav-buttons .button.small.phone-number {
+  display: none;
+}
+
 header .nav-buttons .nav-search-wrapper {
   margin-top: 1em;
   margin-bottom: 1em;
@@ -458,8 +462,7 @@ header .nav-section.nav-section-subscribe form {
 }
 
 /* desktop nav styles */
-
-@media (min-width: 1200px) {
+@media (min-width: 1025px) {
   header .nav {
     overflow: unset;
     grid-template-areas: "brand sections buttons";
@@ -468,15 +471,15 @@ header .nav-section.nav-section-subscribe form {
   }
 
   header .nav.extra-buttons {
-    grid-template-columns: 300px 1fr 425px;
+    grid-template-columns: 150px 1fr 225px;
   }
 
   header .nav.extra-buttons.has-search {
-    grid-template-columns: 300px 1fr 440px;
+    grid-template-columns: 150px 1fr 240px;
   }
 
   header .nav.extra-buttons.search-open {
-    grid-template-columns: 300px 1fr 541px;
+    grid-template-columns: 150px 1fr 275px;
   }
 
   header .nav-buttons .nav-search-wrapper {
@@ -491,7 +494,7 @@ header .nav-section.nav-section-subscribe form {
 
   header .nav-buttons .nav-search-text-area {
     display: none;
-    width: 300px;
+    width: 250px;
     margin: 0;
   }
 
@@ -523,6 +526,7 @@ header .nav-section.nav-section-subscribe form {
     background-color: unset;
     width: unset;
     height: 100%;
+    align-items: center;
   }
 
   header .nav[aria-expanded="true"] .nav-sections {
@@ -548,11 +552,16 @@ header .nav-section.nav-section-subscribe form {
     color: var(--color-gray-7);
     margin: 0;
     padding: 0;
-    cursor: pointer;
+    cursor: default;
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 67px;
     border: none;
+    white-space: nowrap;
+  }
+
+  header .nav-sections h2 a:any-link {
+    cursor: pointer;
   }
 
   header .nav-section:hover h2 {
@@ -580,7 +589,12 @@ header .nav-section.nav-section-subscribe form {
 
   header .nav-section li {
     font-size: 14px;
+    line-height: 18px;
     padding: 8px 44px;
+    cursor: default;
+  }
+
+  header .nav-section li a:any-link {
     cursor: pointer;
   }
 
@@ -627,7 +641,7 @@ header .nav-section.nav-section-subscribe form {
   }
 
   header .nav-section[aria-expanded="true"] li[aria-expanded="true"] > ul,
-  header .nav-section:hover li:hover > ul {
+  header .nav-section:hover li.show-sub-menu > ul {
     position: absolute;
     opacity: 1;
     left: 280px;
@@ -638,6 +652,10 @@ header .nav-section.nav-section-subscribe form {
 
   header .nav-section[aria-expanded="true"] li[aria-expanded="true"],
   header .nav-section:hover li:hover {
+    color: var(--color-1);
+  }
+
+  header .nav-section li a:any-link:hover {
     color: var(--color-1);
   }
 
@@ -671,6 +689,31 @@ header .nav-section.nav-section-subscribe form {
     border: solid 2px var(--color-1);
   }
 
+  header .nav-section.nav-section-subscribe .nav-section-wrapper {
+    padding: 42px;
+    width: 500px;
+  }
+}
+
+@media (min-width: 1060px) {
+  header .nav-buttons .nav-search-text-area {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  header .nav.extra-buttons {
+    grid-template-columns: 150px 1fr 425px;
+  }
+
+  header .nav.extra-buttons.has-search {
+    grid-template-columns: 150px 1fr 440px;
+  }
+
+  header .nav.extra-buttons.search-open {
+    grid-template-columns: 150px 1fr 275px;
+  }
+
   header .nav-buttons .button.small.phone-number {
     color: var(--color-1);
     background-color: unset;
@@ -678,10 +721,26 @@ header .nav-section.nav-section-subscribe form {
     font-size: 15px;
     line-height: 22px;
     padding: 6px 20px;
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1300px) {
+  header .nav.extra-buttons {
+    grid-template-columns: 180px 1fr 425px;
   }
 
-  header .nav-section.nav-section-subscribe .nav-section-wrapper {
-    padding: 42px;
-    width: 500px;
+  header .nav.extra-buttons.has-search {
+    grid-template-columns: 180px 1fr 440px;
+  }
+
+  header .nav.extra-buttons.search-open {
+    grid-template-columns: 180px 1fr 275px;
+  }
+}
+
+@media (min-width: 1330px) {
+  header .nav.extra-buttons.search-open {
+    grid-template-columns: 180px 1fr 541px;
   }
 }
