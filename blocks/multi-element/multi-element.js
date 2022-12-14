@@ -24,11 +24,20 @@ export default function decorate(block) {
         col.classList.add('content');
       }
 
-      if (
-        key === 1 &&
-        (block.classList.contains('extra') || block.classList.contains('extra-right'))
-      ) {
+      if (key === 1 &&
+          (block.classList.contains('extra') || block.classList.contains('extra-right'))) {
         col.classList.add('extra');
+        if (block.classList.contains('button-inline')) {
+          const btns = col.querySelectorAll('.button-container');
+          if (btns.length) {
+            const multiInlineBtns = document.createElement('div');
+            multiInlineBtns.classList.add('multi-inline-buttons');
+
+            btns.forEach(btn => multiInlineBtns.append(btn));
+
+            col.append(multiInlineBtns);
+          }
+        }
       }
 
       block.append(col);

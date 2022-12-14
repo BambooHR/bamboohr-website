@@ -602,33 +602,82 @@
   color: var(--theme-shade15);
 }
 
+#base .copy-color-white :is(p) {
+  color: var(--color-white);
+}
+
 /** link **/
-#base .link-color-base :is(a) {
+#base .link-color-base :is(a:not(.button)) {
   color: var(--theme-base);
 }
 
-#base .link-color-tint-5 :is(a) {
+#base .link-color-tint-5 :is(a:not(.button)) {
   color: var(--theme-tint5);
 }
 
-#base .link-color-tint-15 :is(a) {
+#base .link-color-tint-15 :is(a:not(.button)) {
   color: var(--theme-tint15);
 }
 
-#base .link-color-tint-10 :is(a) {
+#base .link-color-tint-10 :is(a:not(.button)) {
   color: var(--theme-tint10);
 }
 
-#base .link-color-shade-5 :is(a) {
+#base .link-color-shade-5 :is(a:not(.button)) {
   color: var(--theme-shade5);
 }
 
-#base .link-color-shade-10 :is(a) {
+#base .link-color-shade-10 :is(a:not(.button)) {
   color: var(--theme-shade10);
 }
 
-#base .link-color-shade-15 :is(a) {
+#base .link-color-shade-15 :is(a:not(.button)) {
   color: var(--theme-shade15);
+}
+
+#base .link-color-white :is(a:not(.button)) {
+  color: var(--color-white);
+}
+
+/** link background **/
+#base .link-background-base :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-base) 0);
+
+}
+
+#base .link-background-tint-5 :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-tint5) 0);
+
+}
+
+#base .link-background-tint-15 :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-tint15) 0);
+
+}
+
+#base .link-background-tint-10 :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-tint10) 0);
+
+}
+
+#base .link-background-shade-5 :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-shade5) 0);
+
+}
+
+#base .link-background-shade-10 :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-shade10) 0);
+
+}
+
+#base .link-background-shade-15 :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--theme-shade15) 0);
+
+}
+
+#base .link-background-white :is(a:not(.button)) {
+  background-image: linear-gradient(transparent 50%, var(--color-white) 0);
+
 }
 
 /** columns **/

@@ -50,6 +50,29 @@
   background-color: var(--theme-shade15);
 }
 
+.columns.button-theme-shade-5 a.button:not(.link):any-link {
+  color: var(--color-white);
+  background-color: var(--theme-shade5);
+  border: solid 2px transparent;
+  transition: background-color .25s ease-in-out;
+  margin: 0;
+}
+
+.columns.button-theme-shade-5 a.button.light:not(.link):any-link {
+  color: var(--theme-shade5);
+  background-color: var(--color-white);
+  border: solid 2px var(--theme-shade5);
+}
+
+.columns.button-theme-shade-5 a.button:not(.link):any-link:hover {
+  background-color: var(--theme-shade10);
+}
+
+.columns.button-theme-shade-5 a.button.light:not(.link):any-link:hover {
+  color: var(--theme-shade5);
+  background-color: var(--theme-tint10);
+}
+
 .columns.columns-3-cols p,
 .columns.columns-4-cols p,
 .columns.listing-highlights p,
@@ -150,6 +173,16 @@
 .home-more .columns p.button-container {
   display: inline-block;
   text-align: left;
+}
+
+.columns.button-inline .button-container {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.columns.button-inline .button-container:last-of-type {
+  margin-top: 0;
+  margin-right: 0;
 }
 
 .columns.small-icons p:not(:first-of-type) {
@@ -576,12 +609,13 @@ div .column-small-icons-container.column-multi-element {
   font-weight: 700;
   font-size: 26px;
   line-height: 30px;
-  margin: 0 0 30px;
   font-style: normal;
   color: var(--theme-shade5);
 }
 
-.columns.gray-heading h2 {
+.columns.gray-heading h2,
+.columns.gray-heading p,
+.columns.gray-heading ul li {
   color: var(--color-gray-12);
 }
 
@@ -628,6 +662,12 @@ div .column-small-icons-container.column-multi-element {
 
 .columns.button-text-color-shade-5 a.button.link:any-link {
   color: var(--theme-shade5);
+}
+
+@media (min-width: 900px) {
+  .columns.title1-heading h2 {
+    margin: 0 0 30px;
+  }
 }
 
 @media (min-width: 1200px) {

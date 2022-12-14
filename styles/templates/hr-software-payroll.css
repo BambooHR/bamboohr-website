@@ -45,6 +45,11 @@
   font-style: normal;
 }
 
+.hr-software-payroll main .cards .icon.icon-time svg {
+  width: 2rem;
+  height: auto;
+}
+
 @media screen and (min-width: 900px) {
   .hr-software-payroll .title-container h1 {
     padding-top: 50px;

@@ -13,7 +13,7 @@ export default function decorate(block) {
 
   const tocItems = document.querySelectorAll(
     // eslint-disable-next-line comma-dangle
-    '.default-content-wrapper h2, .default-content-wrapper h3, .default-content-wrapper h4, .default-content-wrapper h5, .title-wrapper h2, .title-wrapper h3, .title-wrapper h4, .title-wrapper h5'
+    '.default-content-wrapper h2, .default-content-wrapper h3, .default-content-wrapper h4, .default-content-wrapper h5, .title-wrapper h2, .title-wrapper h3, .title-wrapper h4, .title-wrapper h5, .columns-wrapper .add-to-toc h2, .columns-wrapper .add-to-toc h3, .columns-wrapper .add-to-toc h4, .columns-wrapper .add-to-toc h5'
   );
   const olStack = [document.createElement('ol')];
   let lastChapter = '';

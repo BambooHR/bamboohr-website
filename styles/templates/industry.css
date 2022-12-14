@@ -139,6 +139,7 @@ main .quote.full.industry-footer .image p picture {
 }
 
 .industry main .quote.full.industry-footer .button {
+  background-image: none;
   background-color: var(--theme-tint10);
   color: var(--theme-shade15);
   padding: 18px 40px;
@@ -257,7 +258,7 @@ main .quote.full.industry-footer .image p picture {
 
 @media (min-width: 1200px) {
   .industry .has-bg > span.bg-solid-industry {
-    top: 70%;
+    top: 50%;
   }
 }
 

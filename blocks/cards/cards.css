@@ -116,6 +116,10 @@
     margin: -.6875rem 0 0;
 }
 
+.cards.gray-12-body > .card > p {
+    color: var(--color-gray-12);
+}
+
 .cards > .card > .button-container {
     align-items: start;
     display: flex;

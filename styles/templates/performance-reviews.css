@@ -44,3 +44,60 @@
   height: 0;
   padding: 0;
 }
+
+.performance-reviews .has-bg > span.bg-bottom-multi-3 {
+  top: calc(((100vh * .5) - 38%) * -1);
+  bottom: unset;
+}
+
+.performance-reviews .has-bg > span.bg-solid-industry {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(((100vh * .5) - 120%) * -1);
+  z-index: -2;
+  background-color: var(--theme-shade15);
+}
+
+@media (max-width: 899px) {
+  .performance-reviews .list-helper div:not(:first-child) ul {
+    margin: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .performance-reviews .has-bg > span.bg-bottom-multi-3 {
+    top: calc(((100vh * .5) - 45%) * -1);
+  }
+}
+
+@media (min-width: 900px) {
+  .performance-reviews .has-bg > span.bg-bottom-multi-3 {
+    top: calc(((100vh * .5) - 53%) * -1);
+  }
+
+  .performance-reviews .has-bg > span.bg-solid-industry {
+    height: calc((100vh * .5) - 30%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .performance-reviews .has-bg > span.bg-bottom-multi-3 {
+    top: calc(((100vh * .5) - 41%) * -1);
+  }
+
+  .performance-reviews .has-bg > span.bg-solid-industry {
+    height: calc((100vh * .5) - 42%);
+  }
+}
+
+@media (min-width: 1800px) {
+  .performance-reviews .has-bg > span.bg-bottom-multi-3 {
+    top: calc(((100vh * .5) - 5%) * -1);
+  }
+
+  .performance-reviews .has-bg > span.bg-solid-industry {
+    height: calc((100vh * .5) - 80%);
+  }
+}

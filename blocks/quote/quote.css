@@ -88,6 +88,10 @@ main .quote.full.source .image {
   }
 }
 
+main .quote.full.image-60 .image {
+  max-width: 3.8rem;
+}
+
 main .quote.full.image-130 .image {
   max-width: 8.125rem;
 }
@@ -196,7 +200,7 @@ main .quote.full.secondary .byline {
   }
 }
 
-main .quote.full .button {
+main .quote.full:not(.button-theme-shade-5) .button {
   border-radius: 1.875rem;
   color: var(--color-white);
   font-family: var(--body-font-family);

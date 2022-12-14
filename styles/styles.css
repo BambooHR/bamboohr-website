@@ -88,6 +88,28 @@ a.button:focus {
   background-color: var(--theme-shade5);
 }
 
+.button-theme-shade-5 a.button:not(.link):any-link {
+  color: var(--color-white);
+  background-color: var(--theme-shade5);
+  border: solid 2px transparent;
+  transition: background-color .25s ease-in-out;
+}
+
+.button-theme-shade-5 a.button.light:not(.link):any-link {
+  color: var(--theme-shade5);
+  background-color: var(--color-white);
+  border: solid 2px var(--theme-shade5);
+}
+
+.button-theme-shade-5 a.button:not(.link):any-link:hover {
+  background-color: var(--theme-shade10);
+}
+
+.button-theme-shade-5 a.button.light:not(.link):any-link:hover {
+  color: var(--theme-shade5);
+  background-color: var(--theme-tint10);
+}
+
 /* button link */
 a.button.link:any-link {
   background-color: transparent !important;
@@ -120,7 +142,8 @@ a.button.link:any-link::after {
 
 /* small button style */
 a.button.small:any-link,
-main .callout a.button {
+main .callout a.button,
+.small-button a.button {
   font-size: 15px;
   line-height: 22px;
   padding: 10px 30px;
@@ -763,7 +786,8 @@ main .section > div:empty {
     max-width: 450px;
   }
 
-  .resources-guides main .section > div.columns-wrapper.small-width {
+  .resources-guides main .section > div.columns-wrapper.small-width,
+  main .section > div.title-wrapper.small-width {
     max-width: 640px;
   }
 
@@ -803,6 +827,12 @@ main .section > div:empty {
   main .section > div > :not(div) {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  main .section > div.title-wrapper.laptop-small-width {
+    max-width: 640px;
   }
 }
 
@@ -1303,6 +1333,10 @@ table tbody tr:nth-child(2n) {
 /* Background styles */
 .resources-guides .section:last-of-type {
   margin-top: 0;
+}
+
+.hrvs .section:first-of-type {
+  background: linear-gradient(180.67deg, #96E1FD 0.58%, #96E1FD 19.95%, #E1F3FD 50.52%, #FFFFFF 64.63%);
 }
 
 .gradient-section-1 .image-wrapper:nth-last-of-type(2),
