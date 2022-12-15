@@ -472,3 +472,36 @@ div.has-text-only h4 {
         margin: 0;
     }
 }
+
+/* Headshots */
+.cards.headshots .card {
+  text-align: center;
+  row-gap: 0;
+}
+
+.cards.headshots .card.has-image img {
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-2);
+  width: auto;
+  display: inline-block;
+}
+
+.cards.headshots .card h4 {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  color: var(--color-1-shade-10);
+  margin-top: 10px;
+}
+
+.cards.headshots .card h5 {
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gray-5);
+  margin: 0;
+}
