@@ -994,7 +994,7 @@ async function buildAutoBlocks(main) {
     }
 
     if (
-      template === 'hr-glossary' ||
+      // template === 'hr-glossary' ||
       template === 'job-description' ||
       template === 'resources-guides' ||
       template === 'performance-reviews'

@@ -32,3 +32,24 @@
 .hr-glossary .cards > .card.has-image img {
   margin-bottom: 30px;
 }
+
+
+/* cover */
+.section.bg-cover-green-patterns {
+  position: relative;
+}
+.bg.bg-cover-green-patterns {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -2;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('/styles/backgrounds/bg-cover-green-patterns.png');
+}
+
+.hr-glossary .image.bottom-gap {
+  bottom: -8px !important;
+  position: relative;
+}
