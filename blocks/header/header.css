@@ -10,6 +10,11 @@
   color: #9CA393;
 }
 
+.nav-brand .icon svg {
+  width: 150px;
+  height: 23px;
+}
+
 .nav-search-btn .icon-search svg {
   color: var(--color-1);
 }
@@ -370,6 +375,11 @@ header .nav-buttons .nav-search-text-area {
 
 header .nav-buttons .nav-search-text-area.show-input {
   display: flex;
+}
+
+header .nav-buttons .icon {
+  height: 24px;
+  width: 24px;
 }
 
 .nav-search-input-wrapper {

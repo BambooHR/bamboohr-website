@@ -233,6 +233,16 @@ a.button > svg > use {
   color: currentcolor;
 }
 
+.icon {
+  display: inline-block;
+}
+
+.icon svg {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
 /* headings and body */
 
 main,

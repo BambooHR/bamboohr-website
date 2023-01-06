@@ -246,6 +246,12 @@ main .carousel.style-1 span.icon {
   transition: color 0.25s ease-in-out;
 }
 
+main .carousel.style-1 span.icon svg {
+  max-width: 32px;
+  max-height: 32px;
+
+}
+
 main .carousel.style-1 h2 {
   color: var(--theme-shade5);
   font-family: var(--heading-font-family);

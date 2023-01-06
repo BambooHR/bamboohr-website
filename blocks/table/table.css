@@ -122,6 +122,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 14px;
 }
 
 .table.comparison .elite-ribbon::after,
